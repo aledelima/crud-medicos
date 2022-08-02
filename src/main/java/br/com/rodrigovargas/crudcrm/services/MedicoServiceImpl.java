@@ -34,8 +34,8 @@ public class MedicoServiceImpl implements MedicoService {
         return null;
     }
 
-    public List<Medico> findByName(String name) {
-        return null;
+    public List<Medico> findByNome(String nome) {
+        return repo.findAllByNomeContainingIgnoreCase(nome);
     }
 
     public Medico create(Medico medico) {

@@ -12,7 +12,7 @@ public interface MedicoService {
     Medico findById(Integer id);
     Medico findByCrm(String crm);
     List<Medico> findByHorarioAtendimento(DiaSemana diaSemana, LocalTime horarioInicial, LocalTime horarioFinal);
-    List<Medico> findByName(String name);
+    List<Medico> findByNome(String nome);
     Medico create(Medico medico);
     Medico update(Medico medico);
     void delete(Medico medico);

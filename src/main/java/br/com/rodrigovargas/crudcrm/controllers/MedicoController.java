@@ -32,5 +32,10 @@ public class MedicoController {
         return ResponseEntity.ok(service.findByCrm(crm));
     }
 
+    @RequestMapping("/nome/{nome}")
+    public ResponseEntity<List<Medico>> findByNome(@PathVariable String nome) {
+        return ResponseEntity.ok(service.findByNome(nome));
+    }
+
 
 }
