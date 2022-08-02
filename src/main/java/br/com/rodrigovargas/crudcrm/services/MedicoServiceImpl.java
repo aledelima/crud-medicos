@@ -26,8 +26,8 @@ public class MedicoServiceImpl implements MedicoService {
     }
 
     public Medico findByCrm(String crm) {
-        return null;
-
+        return repo.findMedicoByCrm(crm)
+                .orElseThrow(() -> new ObjectNotFoundException("Médico não existente. CRM: " + crm));
     }
 
     public List<Medico> findByHorarioAtendimento(DiaSemana diaSemana, LocalTime horarioInicial, LocalTime horarioFinal) {
