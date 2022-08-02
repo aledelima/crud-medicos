@@ -30,8 +30,8 @@ public class MedicoServiceImpl implements MedicoService {
                 .orElseThrow(() -> new ObjectNotFoundException("Médico não existente. CRM: " + crm));
     }
 
-    public List<Medico> findByHorarioAtendimento(DiaSemana diaSemana, LocalTime horarioInicial, LocalTime horarioFinal) {
-        return null;
+    public List<Medico> findByHorariosAtendimento(DiaSemana diaSemana, LocalTime horarioInicial, LocalTime horarioFinal) {
+        return repo.findByHorarios(diaSemana, horarioInicial, horarioFinal);
     }
 
     public List<Medico> findByNome(String nome) {

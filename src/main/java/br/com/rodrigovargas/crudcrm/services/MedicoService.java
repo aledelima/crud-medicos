@@ -11,7 +11,7 @@ public interface MedicoService {
     List<Medico> findAll();
     Medico findById(Integer id);
     Medico findByCrm(String crm);
-    List<Medico> findByHorarioAtendimento(DiaSemana diaSemana, LocalTime horarioInicial, LocalTime horarioFinal);
+    List<Medico> findByHorariosAtendimento(DiaSemana diaSemana, LocalTime horarioInicial, LocalTime horarioFinal);
     List<Medico> findByNome(String nome);
     Medico create(Medico medico);
     Medico update(Medico medico);
