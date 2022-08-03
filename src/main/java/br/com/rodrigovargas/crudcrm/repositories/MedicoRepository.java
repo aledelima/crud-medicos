@@ -11,6 +11,7 @@ import java.util.Optional;
 
 public interface MedicoRepository extends JpaRepository<Medico, Integer> {
     Optional<Medico> findMedicoByCrm(String crm);
+    Optional<Medico> findMedicoByEmail(String email);
     List<Medico> findAllByNomeContainingIgnoreCase(String nome);
     @Query(value = "SELECT m FROM Medico m JOIN m.horariosAtendimento h WHERE h.diaSemana=?1 AND " +
             "(" +
