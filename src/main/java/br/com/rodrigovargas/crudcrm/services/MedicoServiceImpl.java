@@ -58,9 +58,8 @@ public class MedicoServiceImpl implements MedicoService {
         return null;
     }
 
-    public void delete(Medico medico) {
-
+    public void delete(Integer id) {
+        repo.delete(this.findById(id));
     }
-
 
 }

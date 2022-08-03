@@ -59,4 +59,10 @@ public class MedicoController {
                     .body(service.create(medico));
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> findByEmail(@PathVariable Integer id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }

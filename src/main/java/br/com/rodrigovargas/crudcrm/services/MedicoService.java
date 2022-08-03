@@ -16,6 +16,6 @@ public interface MedicoService {
     List<Medico> findByNome(String nome);
     Medico create(Medico medico);
     Medico update(Medico medico);
-    void delete(Medico medico);
+    void delete(Integer id);
 
 }
