@@ -34,6 +34,10 @@ public class MedicoController {
     public ResponseEntity<Medico> findByCrm(@PathVariable String crm) {
         return ResponseEntity.ok(service.findByCrm(crm));
     }
+    @RequestMapping("/email/{email}")
+    public ResponseEntity<Medico> findByEmail(@PathVariable String email) {
+        return ResponseEntity.ok(service.findByEmail(email));
+    }
 
     @RequestMapping("/nome/{nome}")
     public ResponseEntity<List<Medico>> findByNome(@PathVariable String nome) {

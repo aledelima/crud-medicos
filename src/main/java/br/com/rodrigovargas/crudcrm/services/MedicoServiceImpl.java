@@ -32,7 +32,7 @@ public class MedicoServiceImpl implements MedicoService {
     }
 
     public Medico findByEmail(String email) {
-        return repo.findMedicoByCrm(email)
+        return repo.findMedicoByEmail(email)
                 .orElseThrow(() -> new ObjectNotFoundException("Médico não cadastrado. Email: " + email));
     }
 
