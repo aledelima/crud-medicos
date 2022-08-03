@@ -59,6 +59,12 @@ public class MedicoController {
                     .body(service.create(medico));
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Medico> update(@PathVariable Integer id, @RequestBody Medico medico) {
+            medico.setId(id);
+            return ResponseEntity.ok().body(service.update(medico));
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> findByEmail(@PathVariable Integer id) {
         service.delete(id);

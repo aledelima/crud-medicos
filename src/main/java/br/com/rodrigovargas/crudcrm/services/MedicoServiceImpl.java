@@ -45,21 +45,38 @@ public class MedicoServiceImpl implements MedicoService {
     }
 
     public Medico create(Medico medico) {
-        repo.findMedicoByCrm(medico.getCrm())
-                .ifPresent(m -> {throw new DataIntegrityViolationException("CRM já cadastrado");});
 
-        repo.findMedicoByEmail(medico.getEmail())
-                .ifPresent(m -> {throw new DataIntegrityViolationException("Email já cadastrado");});
+        verificaExistenciaEmail(medico.getEmail());
+        verificaExistenciaCrm(medico.getCrm());
 
         return repo.save(medico);
     }
 
     public Medico update(Medico medico) {
-        return null;
+        Medico oldMedico = this.findById(medico.getId());
+
+        if (!medico.getEmail().equals(oldMedico.getEmail())) {
+            verificaExistenciaEmail(medico.getEmail());
+        }
+        if (!medico.getCrm().equals(oldMedico.getCrm())) {
+            verificaExistenciaCrm(medico.getCrm());
+        }
+
+        return repo.save(medico);
     }
 
     public void delete(Integer id) {
         repo.delete(this.findById(id));
+    }
+
+    private void verificaExistenciaEmail(String email) {
+        repo.findMedicoByEmail(email)
+                .ifPresent(m -> {throw new DataIntegrityViolationException("Email já cadastrado");});
+    }
+
+    private void verificaExistenciaCrm(String crm) {
+        repo.findMedicoByCrm(crm)
+                .ifPresent(m -> {throw new DataIntegrityViolationException("CRM já cadastrado");});
     }
 
 }
